@@ -20,8 +20,8 @@ const multByTwo=(num)=> {
 
 function map(array, iteratee){
   const newArr = [] 
-  for (let index = 0; index < myArr.length; index++) {
-    newArr.push(iteratee(myArr[index])) 
+  for (let index = 0; index < array.length; index++) {
+    newArr.push(iteratee(array[index])) 
   }
   return newArr
 }
@@ -48,9 +48,9 @@ const removeOverTweleve=(num)=>{
 
 function filter(array, iteratee){
   const myNewArrTwo = []
-  for (let index = 0; index < myArrTwo.length; index++) {
-    if(iteratee(myArrTwo[index])){ 
-      myNewArrTwo.push(iteratee(myArrTwo[index]))
+  for (let index = 0; index < array.length; index++) {
+    if(iteratee(array[index])){ 
+      myNewArrTwo.push(iteratee(array[index]))
     }
   }
   return myNewArrTwo
@@ -75,7 +75,7 @@ const findTheName=(name)=>{
 }
 
 function find(theArray, fnc){
-  for (let index = 0; index < myArrThree.length; index++) {
+  for (let index = 0; index < theArray.length; index++) {
     if(theArray[index] === fnc(theArray[index])){
       return theArray[index]
     }
@@ -98,14 +98,12 @@ console.log(findLast(mayArrFour));
 
 
 //return the first element of the array
+
 function head(theArray){
   return theArray[0]
 }
 
 console.log(head(mayArrFour));
-
-
-
 
 
 //create a new array
@@ -117,15 +115,13 @@ myArrFive = [2,4,6,8,10,12,14,16]
 
 function reverse(theArray){
   const newArrFive = []
-  for (let index = myArrFive.length - 1; index >=0; index-- ) {
-    newArrFive.push(myArrFive[index])
+  for (let index = theArray.length - 1; index >=0; index-- ) {
+    newArrFive.push(theArray[index])
   }
   return newArrFive
 }
 
 console.log(reverse(myArrFive));
-
-
 
 
 //create a new array
@@ -138,7 +134,7 @@ myArrSix = ["Honda","VW","Ford","Bentley"]
 function tail(theArray){
   const newArrSix = []
   for (let index = 1; index < theArray.length; index++) {
-    newArrSix.push(myArrSix[index])
+    newArrSix.push(theArray[index])
   }
   return newArrSix
 }
@@ -156,9 +152,30 @@ console.log(tail(myArrSix));
 //if a swap is done set it to true
 //after each for loop check the variable, if true, continue the while loop
 //if false return theArray
-function sort(theArray){
 
+const myArrSeven = [154, 67, 3, 2000, 421, 99] 
+
+
+function sort(theArray){
+  const copiedArr = myArrSeven 
+  let isItTrue = true
+  while (isItTrue) {
+    isItTrue = false
+    for (let index = 0; index < theArray.length; index++) {
+      if (theArray[index] > theArray[index + 1]){
+        let tempIndex = copiedArr[index]
+        theArray[index] = theArray[index + 1]
+        theArray[index + 1] = tempIndex
+        isItTrue = true
+      }
+    }
+  }
+  return theArray
 }
+
+console.log(sort(myArrSeven));
+
+
 
 exports.map = map;
 exports.filter = filter;
