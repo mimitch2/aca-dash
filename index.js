@@ -11,9 +11,24 @@
 //iteratee is a function that must return something, capture whatever it returns in a variable
 //add the returned value from iteratee tp myNewArray
 //after looping, return  myNewArray
-function map(array, iteratee){
 
+const myArr = [1,2,3,4,5]
+
+const multByTwo=(num)=> {
+  return num * 2
 }
+
+function map(array, iteratee){
+  const newArr = [] 
+  for (let index = 0; index < myArr.length; index++) {
+    newArr.push(iteratee(myArr[index])) 
+  }
+  return newArr
+}
+
+console.log(map(myArr, multByTwo));
+ 
+
 
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
 //create a function called `filter`, it should take 2 parameters `array` and `iteratee`
@@ -24,9 +39,25 @@ function map(array, iteratee){
 //     passing in the item from the current loop
 //iteratee will return true or false, if true add the item to myNewArray else do not
 //after looping, return myNewArray
-function filter(array, iteratee){
 
+const myArrTwo = [3,7,12,33,120]
+
+const removeOverTweleve=(num)=>{
+  if(num <= 12) return num
 }
+
+function filter(array, iteratee){
+  const myNewArrTwo = []
+  for (let index = 0; index < myArrTwo.length; index++) {
+    if(iteratee(myArrTwo[index])){ 
+      myNewArrTwo.push(iteratee(myArrTwo[index]))
+    }
+  }
+  return myNewArrTwo
+}
+
+console.log(filter(myArrTwo, removeOverTweleve));
+
 
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
 //create a function called `find`, it should take 2 parameters `theArray` and `fnc`
@@ -34,9 +65,26 @@ function filter(array, iteratee){
 //     passing in the item from the current loop
 //fnc will return true or false, if true return the item 
 //after looping, return null
+
+myArrThree = ['Mike', 'Joe', 'Cindy', 'Cash', 'Lisa', 'Vern']
+
+const findTheName=(name)=>{
+  if(name === 'Cash'){
+    return name
+  }
+}
+
 function find(theArray, fnc){
 
+  for (let index = 0; index < myArrThree.length; index++) {
+    if(theArray[index] === fnc(theArray[index])){
+      return theArray[index]
+    }
+  }
+  return null
 }
+
+console.log(find(myArrThree, findTheName));
 
 
 //return the last item in theArray
