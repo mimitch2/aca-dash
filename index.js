@@ -75,7 +75,6 @@ const findTheName=(name)=>{
 }
 
 function find(theArray, fnc){
-
   for (let index = 0; index < myArrThree.length; index++) {
     if(theArray[index] === fnc(theArray[index])){
       return theArray[index]
@@ -88,30 +87,64 @@ console.log(find(myArrThree, findTheName));
 
 
 //return the last item in theArray
-function findLast(theArray){
 
+mayArrFour = [2,5,88,44,123, "Word"]
+
+function findLast(theArray){
+  return theArray[theArray.length - 1]
 }
+
+console.log(findLast(mayArrFour));
+
 
 //return the first element of the array
 function head(theArray){
-
+  return theArray[0]
 }
+
+console.log(head(mayArrFour));
+
+
+
+
 
 //create a new array
 //loop theArray in reverse order
 //add the item from each loop to the new array
 //return the new array
-function reverse(theArray){
 
+myArrFive = [2,4,6,8,10,12,14,16]
+
+function reverse(theArray){
+  const newArrFive = []
+  for (let index = myArrFive.length - 1; index >=0; index-- ) {
+    newArrFive.push(myArrFive[index])
+  }
+  return newArrFive
 }
+
+console.log(reverse(myArrFive));
+
+
+
 
 //create a new array
 //loop theArray
 //add the item from each loop to the new array except the first item
 //return the new array
-function tail(theArray){
 
+myArrSix = ["Honda","VW","Ford","Bentley"]
+
+function tail(theArray){
+  const newArrSix = []
+  for (let index = 1; index < theArray.length; index++) {
+    newArrSix.push(myArrSix[index])
+  }
+  return newArrSix
 }
+
+console.log(tail(myArrSix));
+
 
 //implement the most basic sorting algorithm there is
 //assume the array will always have numbers
